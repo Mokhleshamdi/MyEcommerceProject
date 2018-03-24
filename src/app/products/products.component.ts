@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ProductsComponent implements OnInit {
 
@@ -13,7 +14,7 @@ export class ProductsComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    const data = localStorage.getItem('card');
+    const data = localStorage.getItem('cart');
     if (data !== null) {
       this.cartProducts = JSON.parse(data);
     } else {
@@ -88,6 +89,23 @@ export class ProductsComponent implements OnInit {
   }
 
 
+  addToCard(index) {
+    const product = this.products[index];
+    let cartData = [];
+    const data = localStorage.getItem('cart');
+    console.log('data:' + data);
+    console.log('data type:' + typeof data);
+    if (data !== null) {
+      cartData = JSON.parse(data);
+    }
+    cartData.push(product);
+    this.updateCartData(cartData);
+    localStorage.setItem('cart', JSON.stringify(cartData));
+    this.products[index].isAdded = true;
+  }
+  updateCartData(cartData) {
+    this.cartProducts = cartData;
+  }
   goToCard() {
     this.router.navigate(['/card']);
   }
