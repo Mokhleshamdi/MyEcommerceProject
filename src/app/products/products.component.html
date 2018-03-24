@@ -31,3 +31,23 @@
 </div>
 
 </div>
+
+<hr>
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-4 col-centered" *ngFor="let product of products;let i=index">
+      <div class="card card-block">
+        <img class="custom-image-style" [src]="product.img">
+        <div class="product-desc-container row">
+          <div class="container">
+            <p><strong>{{product.title}}: ${{product.price}}</strong></p>
+            <p>{{product.description}}</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
