@@ -11,7 +11,9 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ProductsComponent } from './products/products.component';
 import { CardComponent } from './card/card.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { DisplayInfoComponent } from './display-info/display-info.component';
+import {ProductForSellService} from './product-for-sell.service';
+import { PayementComponent } from './payement/payement.component';
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     AboutComponent,
     ProductsComponent,
     CardComponent,
-    SidebarComponent
+    DisplayInfoComponent,
+    PayementComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     HttpModule,
     routes
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, ProductForSellService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

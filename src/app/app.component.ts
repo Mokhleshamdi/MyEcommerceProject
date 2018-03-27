@@ -12,13 +12,17 @@ export class AppComponent {
   constructor() {
     this.listItems = [
       {  name: 'Home',
-        link: '#/home' },
+        link: '#/home',
+         class: 'fa fa-user fa-lg'},
       {  name: 'Products',
-        link: '#/products' },
+        link: '#/products',
+      class: 'fa fa-users fa-lg'},
       {  name: 'Card',
-        link: '#/card' },
+        link: '#/card',
+      class: 'fa fa-dashboard fa-lg'},
       {  name: 'About',
-        link: '#/about' },
+        link: '#/about',
+      class: 'fa fa-globe fa-lg'},
 
     ];
   }

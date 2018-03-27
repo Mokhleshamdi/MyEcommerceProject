@@ -1,10 +1,16 @@
+<div class="container">
+  <div class="row">
+    <h1>Home</h1>
 
-<div class="container row">
-  <h1>Card</h1>
+  </div>
 </div>
-<hr>
-<br>
-<div class="carts-body-container row">
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+    <div class="card">
+    <div class="carts-body-container row">
+
   <div class="cart-product-container container row" *ngFor="let item of cartProducts;let i=index">
     <div class="col-md-5">
       <img class="custom-image-style" [src]="item.img">
@@ -25,13 +31,16 @@
 <div class="container row" *ngIf="!cartProducts.length">
   <div class="col-md-4 offset-md-4">Empty basket</div>
 </div>
-
+    </div>
+      <div class="card">
 <div class="bill-container">
-  <div class="col-md-4 offset-md-2">
+  <div class="col-md-4 offset-md-10">
     <button class="btn btn-success btn-lg pull-left" (click)="pay()">Pay</button>
   </div>
   <div class="col-md-4">
     <span *ngIf="!cartProducts.length"><strong>$0</strong></span>
-    <span *ngIf="cartProducts.length"><strong>${{coin}}</strong></span>
+    <span *ngIf="cartProducts.length">Total: <strong>${{coin}}</strong></span>
   </div>
 </div>
+      </div></div></div></div>
+

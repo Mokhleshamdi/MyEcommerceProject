@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class CardComponent implements OnInit {
   cartProducts: any;
   coin: any;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.initiateData();
@@ -48,7 +49,7 @@ export class CardComponent implements OnInit {
     if (this.cartProducts.length) {
       localStorage.removeItem('cart');
       this.initiateData();
-      alert('You payed : ' + this.coin);
+      this.router.navigate(['/pay']);
     } else {
       alert('No product in your basket');
     }

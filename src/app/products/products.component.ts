@@ -1,5 +1,6 @@
 import { Component, OnInit , ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -11,7 +12,9 @@ export class ProductsComponent implements OnInit {
   products: any;
   cartProducts: any;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+
+  }
 
   ngOnInit() {
     const data = localStorage.getItem('cart');
@@ -23,7 +26,7 @@ export class ProductsComponent implements OnInit {
 
     this.products = [
       {
-        id: 1,
+         id: 1,
         title: 'Samsung',
         description: 'bla bla bla',
         img: 'assets/1.png',
@@ -33,7 +36,7 @@ export class ProductsComponent implements OnInit {
         id: 2,
         title: 'lenovo',
         description: 'bla bla',
-        img: 'assets/2.png',
+        img: 'assets/2.jpg',
         price: 800
       },
       {
@@ -89,18 +92,21 @@ export class ProductsComponent implements OnInit {
   }
 
 
-  addToCard(index) {
+
+
+  addToCard(index){
     const product = this.products[index];
     let cartData = [];
-    const data = localStorage.getItem('cart');
-    console.log('data:' + data);
-    console.log('data type:' + typeof data);
-    if (data !== null) {
+    let data = localStorage.getItem('cart');
+    console.log( 'data:' + data);
+    console.log( 'data type:' + typeof data);
+    if(data !== null) {
       cartData = JSON.parse(data);
     }
     cartData.push(product);
     this.updateCartData(cartData);
     localStorage.setItem('cart', JSON.stringify(cartData));
+    //data = localStorage.getItem('cart');
     this.products[index].isAdded = true;
   }
   updateCartData(cartData) {
@@ -109,4 +115,5 @@ export class ProductsComponent implements OnInit {
   goToCard() {
     this.router.navigate(['/card']);
   }
+
 }

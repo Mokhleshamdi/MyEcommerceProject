@@ -13,19 +13,30 @@
 </div>
 
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-md-1">
     <br>
     <br>
     <br>
-    <div class="custom-sidebar">
-      <div *ngFor="let item of listItems">
-        <a href="{{item.link}}">{{item.name}}</a>
 
+    <div class="nav-side-menu">
+      <div class="brand">Ecommerce</div>
+      <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+      <div class="menu-list">
+
+        <ul id="menu-content" class="menu-content collapse out">
+          <li class="nav-item" *ngFor="let item of listItems">
+            <a href="{{item.link}}">
+              <i class={{item.class}}></i> {{item.name}}
+            </a>
+          </li>
+        </ul>
       </div>
-      <hr>
     </div>
   </div>
   <div class="col-md-10">
     <router-outlet></router-outlet>
   </div>
+
 </div>
+
