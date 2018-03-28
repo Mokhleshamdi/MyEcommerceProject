@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <h1>Payement</h1>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+<form #monFormulaire="ngForm">
+
+  <label>Full name</label>
+  <input required class="form-control" type="text" id="name" name="name" [(ngModel)]="name">
+
+  <label >Location</label>
+  <input required class="form-control" type="text" id="firstname" name="firstname" [(ngModel)]="firstname">
+
+  <label>Email</label>
+  <input required class="form-control" type="email" id="email" name="email" [(ngModel)]="email">
+
+  <label >Credit Cart</label>
+  <input required class="form-control" type="CreditCard" id="CreditCart" name="CreditCart" [(ngModel)]="CreditCard">
+
+
+  <button [disabled]="monFormulaire.invalid" class="btn btn-success" (click)="payed()">Valider</button>
+
+</form>
+    </div></div></div>
