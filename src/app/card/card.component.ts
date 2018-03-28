@@ -9,6 +9,8 @@ import {Router} from '@angular/router';
 export class CardComponent implements OnInit {
   cartProducts: any;
   coin: any;
+  payment: boolean;
+  hide: boolean;
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -44,7 +46,12 @@ export class CardComponent implements OnInit {
       localStorage.setItem('cart', null);
     }
   }
-
+  payVisible() {
+    this.payment = true;
+  }
+  hideVisible() {
+    this.hide = false;
+  }
   pay() {
     if (this.cartProducts.length) {
       localStorage.removeItem('cart');
