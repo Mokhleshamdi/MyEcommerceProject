@@ -97,7 +97,7 @@ export class ProductsComponent implements OnInit {
   addToCard(index){
     const product = this.products[index];
     let cartData = [];
-    let data = localStorage.getItem('cart');
+    const data = localStorage.getItem('cart');
     console.log( 'data:' + data);
     console.log( 'data type:' + typeof data);
     if(data !== null) {
